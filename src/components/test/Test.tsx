@@ -44,15 +44,14 @@ const Test: FC<IProps> = ({ data }) => {
 
     return (
         <div className={styles.test}>
-            <div>
-                <div className={styles.test__header}>
-                    <h2>Тестирование</h2>
-                    <Timer state={[timerValue, setTimerValue]} />
-                </div>
-                {currentTask < tasks.length && 
-                   <Form state={[currentTask, setCurrentTask]} data={data} />
-                }
+            <div className={styles.test__header}>
+                <h2>Тестирование</h2>
+                <Timer state={[timerValue, setTimerValue]} />
             </div>
+            
+            {currentTask < tasks.length && 
+                <Form state={[currentTask, setCurrentTask]} data={data} />
+            }
 
             {currentTask >= tasks.length && <>
                 <p>Вы ответили на все вопросы! Проверьте свои ответы перед завершением тестирования</p>
